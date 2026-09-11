@@ -6414,6 +6414,16 @@
         android:description="@string/permdesc_requestDeletePackages"
         android:protectionLevel="normal" />
 
+    <!-- Allows an application to spoof its signature in package signature
+         checks (used by microG GmsCore standing in for Google Play Services).
+         Dangerous and denied by default: grant only to microG, in App info.
+         <p>Protection level: dangerous
+    -->
+    <permission android:name="android.permission.FAKE_PACKAGE_SIGNATURE"
+        android:label="@string/permlab_fakePackageSignature"
+        android:description="@string/permdesc_fakePackageSignature"
+        android:protectionLevel="dangerous" />
+
     <!-- Allows an application to install packages.
     <p>Not for use by third-party applications. -->
     <permission android:name="android.permission.INSTALL_PACKAGES"

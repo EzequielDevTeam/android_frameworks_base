@@ -2311,6 +2311,14 @@ public class ComputerEngine implements Computer {
                 == PackageManager.PERMISSION_GRANTED;
     }
 
+    private static final String FAKE_PACKAGE_SIGNATURE =
+            "android.permission.FAKE_PACKAGE_SIGNATURE";
+
+    private boolean hasFakeSignaturePermission(PackageStateInternal packageState, int userId) {
+        final int uid = UserHandle.getUid(userId, packageState.getAppId());
+        return hasPermission(FAKE_PACKAGE_SIGNATURE, uid);
+    }
+
     /**
      * Since isolated process cannot hold permissions, we check the permissions on the owner app
      * for known isolated_compute_app cases because they belong to the same package.
@@ -4234,6 +4242,14 @@ public class ComputerEngine implements Computer {
         if (shouldFilterApplicationIncludingUninstalled(ps1, callingUid, userId)
                 || shouldFilterApplicationIncludingUninstalled(ps2, callingUid, userId)) {
             return PackageManager.SIGNATURE_UNKNOWN_PACKAGE;
+        }
+        // MrEzequielOS microG support: a package explicitly granted
+        // FAKE_PACKAGE_SIGNATURE by the user satisfies signature checks
+        // (lets GmsCore stand in for Google Play Services). The permission
+        // is dangerous and denied by default (per-app user gate, Calyx model).
+        if (hasFakeSignaturePermission(ps1, userId)
+                || hasFakeSignaturePermission(ps2, userId)) {
+            return PackageManager.SIGNATURE_MATCH;
         }
         return checkSignaturesInternal(p1.getSigningDetails(), p2.getSigningDetails());
     }

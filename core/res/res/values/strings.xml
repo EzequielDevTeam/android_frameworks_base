@@ -4246,6 +4246,11 @@
     <!-- Description of an application permission that lets it read install sessions. -->
     <string name="permdesc_requestDeletePackages">Allows an application to request deletion of packages.</string>
 
+    <!-- Title of the microG signature spoofing permission. -->
+    <string name="permlab_fakePackageSignature">spoof package signature</string>
+    <!-- Description of the microG signature spoofing permission. -->
+    <string name="permdesc_fakePackageSignature">Allows an app to stand in for another app in signature checks (microG). Grant only to microG.</string>
+
     <!-- Title of an application permission that lets it ask user to ignore battery optimizations for that app. -->
     <string name="permlab_requestIgnoreBatteryOptimizations">ask to ignore battery optimizations</string>
     <!-- Description of an application permission that lets it ask user to ignore battery optimizations for that app-->
