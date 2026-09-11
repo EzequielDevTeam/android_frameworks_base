@@ -72,6 +72,7 @@ import com.android.systemui.media.controls.ui.view.MediaHost
 import com.android.systemui.media.controls.ui.view.MediaHostState
 import com.android.systemui.media.dagger.MediaModule.POPUP
 import com.android.systemui.media.remedia.ui.viewmodel.MediaViewModel
+import com.android.systemui.mrdynamicbar.MrDynamicBarBinder
 import com.android.systemui.plugins.DarkIconDispatcher
 import com.android.systemui.res.R
 import com.android.systemui.scene.shared.flag.SceneContainerFlag
@@ -388,6 +389,10 @@ fun StatusBarRoot(
                     eventAnimationInteractor::animateStatusBarContentForChipExit,
                     listener = null,
                 )
+                // MrEzequielOS Dynamic Bar, fase 1 (pílula de mídia).
+                // Gancho único e defensivo: o binder desiste sozinho em
+                // caso de falha, sem afetar a status bar.
+                MrDynamicBarBinder.bind(phoneStatusBarView)
                 onViewCreated(phoneStatusBarView)
                 phoneStatusBarView
             },

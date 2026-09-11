@@ -26,6 +26,7 @@ import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.dagger.qualifiers.PerUser;
 import com.android.systemui.dump.DumpManager;
 import com.android.systemui.keyguard.KeyguardSliceProvider;
+import com.android.systemui.mrdynamicbar.MrDynamicBarModule;
 import com.android.systemui.people.PeopleProvider;
 import com.android.systemui.settings.MultiUserUtilsModule;
 import com.android.systemui.startable.Dependencies;
@@ -72,6 +73,7 @@ import javax.inject.Provider;
 @Subcomponent(modules = {
         DefaultComponentBinder.class,
         DependencyProvider.class,
+        MrDynamicBarModule.class,
         MultiUserUtilsModule.class,
         NotificationInsetsModule.class,
         QsFrameTranslateModule.class,

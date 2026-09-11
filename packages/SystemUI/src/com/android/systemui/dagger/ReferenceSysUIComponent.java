@@ -18,6 +18,7 @@ package com.android.systemui.dagger;
 
 import com.android.systemui.controls.dagger.StartControlsStartableModule;
 import com.android.systemui.keyguard.CustomizationProvider;
+import com.android.systemui.mrdynamicbar.MrDynamicBarModule;
 import com.android.systemui.settings.MultiUserUtilsModule;
 import com.android.systemui.statusbar.NotificationInsetsModule;
 import com.android.systemui.statusbar.QsFrameTranslateModule;
@@ -34,6 +35,7 @@ import dagger.Subcomponent;
 @Subcomponent(modules = {
         DefaultComponentBinder.class,
         DependencyProvider.class,
+        MrDynamicBarModule.class,
         MultiUserUtilsModule.class,
         NotificationInsetsModule.class,
         QsFrameTranslateModule.class,
