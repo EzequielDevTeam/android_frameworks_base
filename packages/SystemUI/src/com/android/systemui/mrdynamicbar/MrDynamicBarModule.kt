@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: EzequielDevTeam (MrEzequielOS)
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 package com.android.systemui.mrdynamicbar
 
 import com.android.systemui.CoreStartable
