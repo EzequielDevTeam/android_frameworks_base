@@ -711,6 +711,8 @@ applications that come with the platform
         <permission name="android.permission.READ_SYSTEM_GRAMMATICAL_GENDER"/>
         <!-- MrEzequielOS Cuidado do dispositivo: limpeza real de cache -->
         <permission name="android.permission.DELETE_CACHE_FILES"/>
+        <!-- MrEzequielOS loja de fontes: troca de overlays de fonte -->
+        <permission name="android.permission.CHANGE_OVERLAY_PACKAGES"/>
     </privapp-permissions>
 
     <privapp-permissions package="com.android.bips">
