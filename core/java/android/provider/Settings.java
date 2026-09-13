@@ -11350,6 +11350,28 @@ public final class Settings {
                 "num_rotation_suggestions_accepted";
 
         /**
+         * Whether to use PixelProps spoof for google apps (MrEzequielOS,
+         * ported from Evolution X; default off, per-app user gate).
+         * @hide
+         */
+        @Readable
+        public static final String PI_PP_SPOOF = "pi_pp_spoof";
+
+        /**
+         * Whether to use spoof for photos.
+         * @hide
+         */
+        @Readable
+        public static final String PI_PHOTOS_SPOOF = "pi_photos_spoof";
+
+        /**
+         * Whether to use spoof for snapchat.
+         * @hide
+         */
+        @Readable
+        public static final String PI_SNAPCHAT_SPOOF = "pi_snapchat_spoof";
+
+        /**
          * Read only list of the service components that the current user has explicitly allowed to
          * see and assist with all of the user's notifications.
          *

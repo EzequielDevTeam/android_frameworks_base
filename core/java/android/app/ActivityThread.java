@@ -257,6 +257,7 @@ import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.FastPrintWriter;
 import com.android.internal.util.Preconditions;
 import com.android.internal.util.StringCache;
+import com.android.internal.util.evolution.PixelPropsUtils;
 import com.android.internal.util.function.pooled.PooledLambda;
 import com.android.org.conscrypt.TrustedCertificateStore;
 import com.android.server.am.BitmapDumpProto;
@@ -8007,6 +8008,14 @@ public final class ActivityThread extends ClientTransactionHandler
         final IActivityManager mgr = ActivityManager.getService();
         final ContextImpl appContext = ContextImpl.createAppContext(this, data.info);
         mConfigurationController.updateLocaleListFromAppContext(appContext);
+
+        // MrEzequielOS: per-app Pixel props spoof (ported from Evolution X,
+        // default off via Secure toggles). Defensive: never break app launch.
+        try {
+            PixelPropsUtils.setProps(appContext);
+        } catch (Throwable t) {
+            Log.w(TAG, "PixelProps spoof skipped", t);
+        }
 
         // Initialize the default http proxy in this process.
         Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, "Setup proxies");
