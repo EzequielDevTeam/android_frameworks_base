@@ -17,7 +17,6 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.android.systemui.statusbar.phone.PhoneStatusBarView
-import com.android.systemui.statusbar.phone.PhoneStatusBarView
 
 /**
  * Instala a pílula de mídia na status bar (fase 1).
