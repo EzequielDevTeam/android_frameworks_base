@@ -49,7 +49,6 @@ import android.util.Log;
 
 import com.android.internal.R;
 import com.android.internal.util.evolution.PixelDeviceRepository;
-import com.android.internal.util.evolution.Utils;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
