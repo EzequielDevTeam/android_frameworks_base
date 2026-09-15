@@ -4987,6 +4987,24 @@
     <!-- Colon separated list of package names that should be granted Notification Listener access -->
     <string name="config_defaultListenerAccessPackages" translatable="false"></string>
 
+    <!-- MrEzequielOS: packages exempted from PixelProps spoof UID checks
+         (port Evolution X; GMS + launchers da base). -->
+    <string-array name="config_launcherPackages" translatable="false">
+        <item>com.google.android.gms</item>
+        <item>com.android.launcher3</item>
+    </string-array>
+
+    <!-- MrEzequielOS: validation bypass whitelists (port Evolution X).
+         Vazias = comportamento padrão do AOSP, sem bypass. -->
+    <string-array name="config_fgsTypeValidationBypassPackages" translatable="false">
+    </string-array>
+
+    <string-array name="config_alarmManagerValidationBypassPackages" translatable="false">
+    </string-array>
+
+    <string-array name="config_broadcastReceiverValidationBypassPackages" translatable="false">
+    </string-array>
+
     <!-- Maximum size, specified in pixels, to restrain the display space width to. Height and
          density will be scaled accordingly to maintain aspect ratio. A value of 0 indicates no
          constraint will be enforced. -->
