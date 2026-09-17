@@ -412,23 +412,19 @@ public final class PixelPropsUtils {
         }
     }
 
-    private static String[] getStringArrayResSafely(int resId) {
-        String[] strArr = Resources.getSystem().getStringArray(resId);
-        if (strArr == null) strArr = new String[0];
-        return strArr;
-    }
-
     public static boolean isPackageGoogle(String pkg) {
         return pkg != null && pkg.toLowerCase().contains("google");
     }
 
+    // MrEzequielOS: launcher list hardcoded (was R.array.config_launcherPackages
+    // in Evolution X). Same packages, zero resource dependency, same behavior.
     private static Set<String> getLauncherPkgs() {
         synchronized (PixelPropsUtils.class) {
             if (mLauncherPkgs == null || mLauncherPkgs.isEmpty()) {
-                mLauncherPkgs =
-                        new HashSet<>(
-                                Arrays.asList(
-                                        getStringArrayResSafely(R.array.config_launcherPackages)));
+                mLauncherPkgs = new HashSet<>();
+                mLauncherPkgs.add(PACKAGE_GMS);
+                mLauncherPkgs.add("com.android.launcher3");
+                mLauncherPkgs.add("com.google.android.apps.nexuslauncher");
             }
             return mLauncherPkgs;
         }
@@ -504,43 +500,18 @@ public final class PixelPropsUtils {
                 || isPackageGoogle(context.getPackageManager().getNameForUid(callingUid));
     }
 
-    // Whitelist of package names to bypass FGS type validation
+    // MrEzequielOS: validation whitelists intentionally empty (= stock AOSP
+    // behavior, no bypass). Was R.array.* in Evolution X; hardcoded to remove
+    // the resource dependency.
     public static boolean shouldBypassFGSValidation(String packageName) {
-        if (Arrays.asList(getStringArrayResSafely(R.array.config_fgsTypeValidationBypassPackages))
-                .contains(packageName)) {
-            dlog("shouldBypassFGSValidation: "
-                    + "Bypassing FGS type validation for whitelisted app: "
-                    + packageName);
-            return true;
-        }
         return false;
     }
 
-    // Whitelist of package names to bypass alarm manager validation
     public static boolean shouldBypassAlarmManagerValidation(String packageName) {
-        if (Arrays.asList(
-                        getStringArrayResSafely(
-                                R.array.config_alarmManagerValidationBypassPackages))
-                .contains(packageName)) {
-            dlog("shouldBypassAlarmManagerValidation: "
-                    + "Bypassing alarm manager validation for whitelisted app: "
-                    + packageName);
-            return true;
-        }
         return false;
     }
 
-    // Whitelist of package names to bypass broadcast receiver validation
     public static boolean shouldBypassBroadcastReceiverValidation(String packageName) {
-        if (Arrays.asList(
-                        getStringArrayResSafely(
-                                R.array.config_broadcastReceiverValidationBypassPackages))
-                .contains(packageName)) {
-            dlog("shouldBypassBroadcastReceiverValidation: "
-                    + "Bypassing broadcast receiver validation for whitelisted app: "
-                    + packageName);
-            return true;
-        }
         return false;
     }
 
