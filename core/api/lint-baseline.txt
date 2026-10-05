@@ -1726,3 +1726,5 @@ UnflaggedApi: android.view.inputmethod.InlineSuggestionsRequest.Builder#setClien
     New API must be flagged with @FlaggedApi: method android.view.inputmethod.InlineSuggestionsRequest.Builder.setClientSupported(boolean)
 UnflaggedApi: android.view.inputmethod.InlineSuggestionsRequest.Builder#setServiceSupported(boolean):
     New API must be flagged with @FlaggedApi: method android.view.inputmethod.InlineSuggestionsRequest.Builder.setServiceSupported(boolean)
+UnflaggedApi: android.Manifest.permission#FAKE_PACKAGE_SIGNATURE:
+    New API must be flagged with @FlaggedApi: field android.Manifest.permission.FAKE_PACKAGE_SIGNATURE
